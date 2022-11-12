@@ -3,10 +3,19 @@
 console.log("hello wrodl");
 
 ///////////////////////////////////////
-// let's make the grid
+// global variables
+
+const gridsize = 560;
+
+///////////////////////////////////////
+// dom variables
 
 const gridSquare = document.createElement("div");
 const sketchContainer = document.querySelector(".sketch-container");
+const btnReset = document.querySelector(".btn-reset");
+
+///////////////////////////////////////
+// let's make the grid
 
 for (let i = 0; i < 16; i++) {
   const col = document.createElement("div");
@@ -49,23 +58,9 @@ allSquares.forEach((square) => {
   square.addEventListener("mouseover", highlightSquare);
 });
 
-const btnReset = document.querySelector(".btn-reset");
 btnReset.addEventListener("click", () => {
   allSquares.forEach((square) => {
     square.style.backgroundColor = "white";
     console.log("hello");
   });
 });
-
-// for (let i = 0; i < 16; i++) {
-//   const gridSquare = document.createElement("div");
-//   gridSquare.style.height = "50px";
-//   gridSquare.style.flex = "1";
-//   gridSquare.style.border = "1px solid black";
-//   firstCol.appendChild(gridSquare);
-
-//   const newRow = document.createElement("div");
-
-//   if (i % 16 === 0) {
-//     sketchContainer.appendChild(newRow);
-//   }
