@@ -17,8 +17,9 @@ const btnRadios = document.querySelectorAll(".btnRadio");
 // global variables
 
 const containerSize = sketchContainer.clientHeight;
-console.log(sketchContainer.getAttribute("height"));
+let areWeDrawing = false;
 let mode = "black";
+let allSquares;
 
 ///////////////////////////////////////
 // functions
@@ -48,7 +49,29 @@ const createGrid = function (gridSize) {
   console.log("creategrid run");
 };
 
+const setupSquares = function () {
+  allSquares = document.querySelectorAll(".gridsquare");
+  allSquares.forEach((square) => {
+    square.addEventListener("mouseenter", highlightSquare);
+    square.addEventListener("mousedown", () => {
+      areWeDrawing = true;
+    });
+    square.addEventListener("mouseup", () => {
+      areWeDrawing = false;
+    });
+
+    square.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+
+    square.addEventListener("drop", (event) => {
+      e.preventDefault();
+    });
+  });
+};
+
 const highlightSquare = function (e) {
+  if (!areWeDrawing) return;
   console.log("hovered a square");
   e.stopPropagation();
   console.log(mode);
@@ -97,11 +120,12 @@ const generateGrid = function () {
 
   createGrid(userGridSize);
 
-  allSquares = document.querySelectorAll(".gridsquare");
-  allSquares.forEach((square) => {
-    square.addEventListener("mouseover", highlightSquare);
-  });
+  setupSquares();
   //   createGrid(userGridSize);
+};
+
+const toggleDraw = function () {
+  areWeDrawing = areWeDrawing ? false : true;
 };
 
 const updateMode = function () {
@@ -113,14 +137,10 @@ const updateMode = function () {
 // Main Program
 
 createGrid(16);
+setupSquares();
 
 ///////////////////////////////////////
 // event listeners
-
-let allSquares = document.querySelectorAll(".gridsquare");
-allSquares.forEach((square) => {
-  square.addEventListener("mouseover", highlightSquare);
-});
 
 btnClear.addEventListener("click", () => {
   allSquares.forEach((square) => {
