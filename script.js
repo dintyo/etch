@@ -1,7 +1,5 @@
 "use strict;";
 
-console.log("hello wrodl");
-
 ///////////////////////////////////////
 // dom variables
 
@@ -46,7 +44,6 @@ const createGrid = function (gridSize) {
       col.appendChild(gridSquare);
     }
   }
-  console.log("creategrid run");
 };
 
 const setupSquares = function () {
@@ -72,22 +69,16 @@ const setupSquares = function () {
 
 const highlightSquare = function (e) {
   if (!areWeDrawing) return;
-  console.log("hovered a square");
   e.stopPropagation();
-  console.log(mode);
   if (mode == "rainbow") {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    console.log(randomColor);
     this.style.backgroundColor = "#" + randomColor;
-    console.log("reached here");
     // this.style.outline = "0px";
   }
 
   if (mode == "grey") {
     let currentBackground = this.style.background;
-    console.log(currentBackground);
     if (currentBackground == "white") {
-      console.log("WE GOT HERE");
       this.style.backgroundColor = "black";
       this.style.background = "rgba(0, 0, 0, .09)";
     } else {
@@ -96,7 +87,6 @@ const highlightSquare = function (e) {
         /[^,\s]*(?=\)$)/,
         Number(currentBackground) + 0.09
       );
-      console.log(this.style.background);
     }
     // this.style.outline = "0px";
   }
@@ -108,7 +98,6 @@ const highlightSquare = function (e) {
 
 const generateGrid = function () {
   const userGridSize = Number(inputGridSize.value);
-  console.log(userGridSize);
   allSquares.forEach((square) => {
     square.remove();
   });
@@ -130,7 +119,6 @@ const toggleDraw = function () {
 
 const updateMode = function () {
   mode = this.value;
-  console.log(mode);
 };
 
 ///////////////////////////////////////
@@ -146,7 +134,6 @@ btnClear.addEventListener("click", () => {
   allSquares.forEach((square) => {
     square.style.backgroundColor = "white";
     // square.style.outline = "1px solid var(--color1)";
-    console.log("hello");
   });
 });
 
