@@ -60,9 +60,10 @@ button:active {
   justify-items: center;
   margin-bottom: 40px;
   margin-top: 20px;
-  box-sizing: border-box;
-  outline: 20px solid var(--color1);
+  border: 20px solid var(--color1);
   background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px grey;
 }
 
 .btn-clear {
@@ -102,18 +103,7 @@ button:active {
 .footer {
   background-color: var(--color1);
   width: 100%;
-  /* margin-top: auto; */
   position: fixed;
   bottom: 0px;
   text-align: center;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 30px; */
 }
-
-/* input[type="range"] {
-  height: 32px;
-  margin: 10px 0;
-  width: 100%;
-} */
