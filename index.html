@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch a Sketch</title>
 
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>ETCH-A-SKETCH</h1>
     <div class="sketch-container"></div>
-    <br>
-    <label>grid size: </label><input type="range" class="input-gridsize" ></input>
-    <span class="span-gridsize">50x50</span>
-    <button class="btn-generate">generate grid</button>
-    <br>
-    <input type="radio" class="btnRadio" name ="mode" value="black"><label for="btnRadio">black</label>
-    <input type="radio" class="btnRadio" name ="mode" value="grey"><label for="btnRadio">grey</label>
-    <input type="radio" class="btnRadio" name ="mode" value="rainbow"><label for="btnRadio">rainbow</label>
-    <br>
-    <button class="btn-reset">reset</button>
+    <div class="gridsettings-container">
+        <label>grid size: </label><input type="range" class="input-gridsize"></input>
+        <span class="span-gridsize">50x50</span>
+        <button class="btn-generate">generate</button>
+    </div>
+    <div class="radio-container">
+        <input type="radio" class="btnRadio" name="mode" value="black" checked><label for="btnRadio">black</label>
+        <input type="radio" class="btnRadio" name="mode" value="grey"><label for="btnRadio">shade</label>
+        <input type="radio" class="btnRadio" name="mode" value="rainbow"><label for="btnRadio">rainbow</label>
+    </div>
+    <button class="btn-clear">clear</button>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

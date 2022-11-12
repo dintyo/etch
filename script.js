@@ -3,21 +3,22 @@
 console.log("hello wrodl");
 
 ///////////////////////////////////////
-// global variables
-
-const containerSize = 560;
-let mode = "black";
-
-///////////////////////////////////////
 // dom variables
 
 const gridSquare = document.createElement("div");
 const sketchContainer = document.querySelector(".sketch-container");
-const btnReset = document.querySelector(".btn-reset");
+const btnClear = document.querySelector(".btn-clear");
 const inputGridSize = document.querySelector(".input-gridsize");
 const btnGenerate = document.querySelector(".btn-generate");
 const spanGrid = document.querySelector(".span-gridsize");
 const btnRadios = document.querySelectorAll(".btnRadio");
+
+///////////////////////////////////////
+// global variables
+
+const containerSize = sketchContainer.clientHeight;
+console.log(sketchContainer.clientHeight);
+let mode = "black";
 
 ///////////////////////////////////////
 // functions
@@ -37,8 +38,9 @@ const createGrid = function (gridSize) {
       const gridSquare = document.createElement("div");
       gridSquare.style.width = `${containerSize / gridSize}`;
       gridSquare.style.flex = 1;
-      gridSquare.style.outline = "1px solid grey";
-      gridSquare.style.backgroundColor = "white";
+      //   gridSquare.style.outline = "1px solid var(--color1)";
+      //   gridSquare.style.backgroundColor = "white";
+      gridSquare.style.background = "white";
       gridSquare.classList.add("gridsquare");
       col.appendChild(gridSquare);
     }
@@ -55,11 +57,15 @@ const highlightSquare = function (e) {
     console.log(randomColor);
     this.style.backgroundColor = "#" + randomColor;
     console.log("reached here");
+    // this.style.outline = "0px";
   }
 
   if (mode == "grey") {
     let currentBackground = this.style.background;
-    if (!currentBackground) {
+    console.log(currentBackground);
+    if (currentBackground == "white") {
+      console.log("WE GOT HERE");
+      this.style.backgroundColor = "black";
       this.style.background = "rgba(0, 0, 0, .09)";
     } else {
       currentBackground = this.style.background.match(/[^,\s]*(?=\)$)/, "");
@@ -69,9 +75,11 @@ const highlightSquare = function (e) {
       );
       console.log(this.style.background);
     }
+    // this.style.outline = "0px";
   }
   if (mode == "black") {
     this.style.backgroundColor = "black";
+    // this.style.outline = "0px";
   }
 };
 
@@ -114,10 +122,10 @@ allSquares.forEach((square) => {
   square.addEventListener("mouseover", highlightSquare);
 });
 
-btnReset.addEventListener("click", () => {
+btnClear.addEventListener("click", () => {
   allSquares.forEach((square) => {
     square.style.backgroundColor = "white";
-    square.style.outline = "1px solid grey";
+    // square.style.outline = "1px solid var(--color1)";
     console.log("hello");
   });
 });
