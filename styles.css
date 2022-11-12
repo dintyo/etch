@@ -83,7 +83,9 @@ button:active {
 }
 
 .span-gridsize {
-  min-width: 40px;
+  min-width: 55px;
+  margin-right: 0px;
+  text-align: center;
 }
 
 .github-social {
