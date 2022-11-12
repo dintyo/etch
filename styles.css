@@ -1,7 +1,7 @@
 :root {
-  --color1: #ffd07b;
-  --color2: #fdb833;
-  --gridsize: 400px;
+  --color1: #16262e;
+  --color2: #2e4756;
+  --gridsize: 300px;
 }
 * {
   font-family: "Poor Story", cursive;
@@ -11,7 +11,7 @@
 body {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   flex-direction: column;
   background-color: var(--color2);
   color: white;
@@ -35,6 +35,19 @@ h1 {
 
 button {
   padding: 5px 16px;
+  background-color: var(--color2);
+  border: 3px solid var(--color1);
+  color: inherit;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: var(--color1);
+}
+
+button:active {
+  box-shadow: 10px;
+  scale: 0.95;
 }
 
 .sketch-container {
@@ -47,7 +60,7 @@ button {
   margin-bottom: 40px;
   margin-top: 20px;
   box-sizing: border-box;
-  outline: 20px solid #ffd07b;
+  outline: 20px solid var(--color1);
   background-color: white;
 }
 
@@ -65,14 +78,39 @@ button {
   align-items: center;
   justify-content: space-around;
   gap: 2vmin;
+  margin-bottom: 10px;
 }
 
 .span-gridsize {
   min-width: 40px;
 }
 
-input[type="range"] {
+.github-social {
+  margin-left: 10px;
+  align-items: center;
+  height: 15px;
+  transition: transform 0.7s ease-in-out;
+}
+
+.github-social:hover {
+  transform: rotate(360deg);
+}
+
+.footer {
+  background-color: var(--color1);
+  width: 100%;
+  /* margin-top: auto; */
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 30px; */
+}
+
+/* input[type="range"] {
   height: 32px;
   margin: 10px 0;
   width: 100%;
-}
+} */

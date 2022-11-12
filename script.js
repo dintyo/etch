@@ -17,7 +17,7 @@ const btnRadios = document.querySelectorAll(".btnRadio");
 // global variables
 
 const containerSize = sketchContainer.clientHeight;
-console.log(sketchContainer.clientHeight);
+console.log(sketchContainer.getAttribute("height"));
 let mode = "black";
 
 ///////////////////////////////////////
