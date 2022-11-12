@@ -62,11 +62,7 @@ const setupSquares = function () {
     });
 
     square.addEventListener("drop", (event) => {
-      event.preventDefault();
-
-      square.addEventListener("touchmove", (event) => {
-        event.preventDefault();
-      });
+      e.preventDefault();
     });
   });
 };
@@ -91,6 +87,7 @@ const highlightSquare = function (e) {
         /[^,\s]*(?=\)$)/,
         Number(currentBackground) + 0.09
       );
+      console.log(this.style.background);
     }
     // this.style.outline = "0px";
   }
@@ -102,6 +99,7 @@ const highlightSquare = function (e) {
 
 const generateGrid = function () {
   const userGridSize = Number(inputGridSize.value);
+  console.log(userGridSize);
   allSquares.forEach((square) => {
     square.remove();
   });
@@ -123,6 +121,7 @@ const toggleDraw = function () {
 
 const updateMode = function () {
   mode = this.value;
+  console.log(mode);
 };
 
 ///////////////////////////////////////
@@ -138,6 +137,7 @@ btnClear.addEventListener("click", () => {
   allSquares.forEach((square) => {
     square.style.backgroundColor = "white";
     // square.style.outline = "1px solid var(--color1)";
+    console.log("hello");
   });
 });
 
