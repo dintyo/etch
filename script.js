@@ -62,7 +62,11 @@ const setupSquares = function () {
     });
 
     square.addEventListener("drop", (event) => {
-      e.preventDefault();
+      event.preventDefault();
+
+      square.addEventListener("touchmove", (event) => {
+        event.preventDefault();
+      });
     });
   });
 };
