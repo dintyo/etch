@@ -32,11 +32,30 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
-const allSquares = document.querySelectorAll(".gridsquare");
-console.log(allSquares);
-
 ///////////////////////////////////////
 // highlight grid on mouseover
+
+const highlightSquare = function (e) {
+  console.log("hovered a square");
+  e.stopPropagation();
+  this.style.backgroundColor = "black";
+};
+
+///////////////////////////////////////
+// event listeners
+
+const allSquares = document.querySelectorAll(".gridsquare");
+allSquares.forEach((square) => {
+  square.addEventListener("mouseover", highlightSquare);
+});
+
+const btnReset = document.querySelector(".btn-reset");
+btnReset.addEventListener("click", () => {
+  allSquares.forEach((square) => {
+    square.style.backgroundColor = "white";
+    console.log("hello");
+  });
+});
 
 // for (let i = 0; i < 16; i++) {
 //   const gridSquare = document.createElement("div");
